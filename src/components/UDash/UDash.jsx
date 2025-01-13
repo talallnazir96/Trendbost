@@ -80,10 +80,10 @@ const UDash = ({ platform }) => {
   };
 
   const orders = [
-    { orderId: 'ORD12345', platform: 'TikTok', url: 'https://example.com/post1', status: 'Pending' },
-    { orderId: 'ORD12346', platform: 'Facebook', url: 'https://example.com/post2', status: 'Processing' },
-    { orderId: 'ORD12347', platform: 'Twitter', url: 'https://example.com/post3', status: 'Progress' },
-    { orderId: 'ORD12348', platform: 'Instagram', url: 'https://example.com/post4', status: 'Cancelled' },
+    { orderId: 'ORD12345', platform: 'TikTok', subscription: 'Basic', paymentMethod: 'Paypal', status: 'Pending' },
+    { orderId: 'ORD12346', platform: 'Facebook', subscription: 'Advanced', paymentMethod: 'Credit/Debit Card', status: 'Processing' },
+    { orderId: 'ORD12347', platform: 'Twitter', subscription: 'Premium', paymentMethod: 'Crypto Wallet', status: 'Progress' },
+    { orderId: 'ORD12348', platform: 'Instagram', subscription: 'Customized', paymentMethod: 'Paypal', status: 'Cancelled' },
   ];
 
   const plans = [
@@ -168,7 +168,8 @@ const UDash = ({ platform }) => {
                 <tr>
                   <th>Order ID</th>
                   <th>Platform</th>
-                  <th>URL</th>
+                  <th>Subscription</th>
+                  <th>Payment Method</th>
                   <th>Order Status</th>
                 </tr>
               </thead>
@@ -177,7 +178,8 @@ const UDash = ({ platform }) => {
                   <tr key={order.orderId}>
                     <td>{order.orderId}</td>
                     <td>{order.platform}</td>
-                    <td><a href={order.url}>Link</a></td>
+                    <td>{order.subscription}</td>
+                    <td>{order.paymentMethod}</td>
                     <td>{order.status}</td>
                   </tr>
                 ))}

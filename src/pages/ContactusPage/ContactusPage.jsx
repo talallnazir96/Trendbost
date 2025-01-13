@@ -11,11 +11,11 @@ function ContactusPage() {
   return (
     <div className="Contactus">
       <Header />
-      <div className="contactus-wrapper">
-        {/* Particles Background */}
-        <div className="contactus-particles-wrapper">
+      {/* Particles Background */}
+      <div className="contactus-particles-wrapper">
           <ParticlesBackground id="contactus-particles" />
         </div>
+      <div className="contactus-wrapper">
         <div className="contactus-left">
           <h1 className="contactus-heading">Contact Us</h1>
         </div>

@@ -11,11 +11,11 @@ function AboutusPage() {
   return (
     <div className="AbouUs">
       <Header />
-      <div className="aboutus-wrapper">
-        {/* Particles Background */}
-        <div className="aboutus-particles-wrapper">
+      {/* Particles Background */}
+      <div className="aboutus-particles-wrapper">
           <ParticlesBackground id="main-particles" />
         </div>
+      <div className="aboutus-wrapper">
         <div className="aboutus-left">
           <h1 className="aboutus-heading">About Us</h1>
         </div>

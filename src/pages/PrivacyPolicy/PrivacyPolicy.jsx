@@ -11,11 +11,12 @@ function PrivacyPolicy() {
   return (
     <div className="PrivacyPolicy">
       <Header />
-      <div className="privacy-wrapper">
-        {/* Particles Background */}
-        <div className="policy-particles-wrapper">
+      {/* Particles Background */}
+      <div className="policy-particles-wrapper">
           <ParticlesBackground id="main-particles" />
         </div>
+      <div className="privacy-wrapper">
+        
         <div className="privacy-left">
           <h1 className="privacy-heading">Privacy Policy</h1>
         </div>

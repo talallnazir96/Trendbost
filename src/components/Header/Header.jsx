@@ -10,19 +10,6 @@ import './Header.css';
 import logo from './logo.png';
 import { useAuth } from '../../context/auth';
 
-function useDebounce(func, delay) {
-  const timeoutRef = React.useRef(null);
-
-  const debouncedFunction = (...args) => {
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-
-  return debouncedFunction;
-}
-
 function Header() {
   const [auth, setAuth] = useAuth();
   const [shrink, setShrink] = useState(false);
@@ -52,16 +39,27 @@ function Header() {
     navigate("/login");
   };
 
-  const handleScroll = useDebounce(() => {
-    setShrink(window.scrollY > 50);
-  }, 100);
-
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    let previousScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 50 && !shrink) {
+        setShrink(true);
+      } else if (currentScrollY <= 50 && shrink) {
+        setShrink(false);
+      }
+      previousScrollY = currentScrollY;
     };
-  }, [handleScroll]);
+
+    // Use throttling for better performance
+    const throttledHandleScroll = throttle(handleScroll, 100);
+
+    window.addEventListener('scroll', throttledHandleScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+    };
+  }, [shrink]);
 
   return (
     <Navbar
@@ -117,3 +115,17 @@ function Header() {
 }
 
 export default Header;
+
+// Utility function: Throttling
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}

@@ -347,7 +347,6 @@
 
 
 
-
 /* Dashboard content */
 /* General styles */
 .dashboard-graphs {
@@ -444,23 +443,7 @@
 .dashboard-graphs-pie-chart {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  background: conic-gradient(#7d4eff 0% 75%, #f3f3f3 75% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   margin: 0 auto;
-}
-
-.dashboard-graphs-pie-chart-follow {
-  background: conic-gradient(#f156fc 0% 75%, #f3f3f3 75% 100%);
-}
-
-.dashboard-graphs-chart-percentage {
-  font-size: 14px;
-  font-weight: bold;
-  color: #4e4e4e;
 }
 
 .dashboard-graphs-chart-label,
@@ -482,7 +465,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 50%;
   background: #fff;
   padding: 30px 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -519,12 +502,13 @@
 .dashboard-graphs-detail-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .dashboard-graphs-detail-icon {
   font-size: 24px;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .dashboard-graphs-detail-content {
