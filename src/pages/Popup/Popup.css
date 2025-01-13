@@ -42,7 +42,7 @@ General container styling
   
   /* Icon styling */
   .pop-payment-icon {
-    background-color: #4caf50;
+    background-color: #6a0dad;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -97,6 +97,6 @@ General container styling
   }
   
   .pop-payment-button:hover {
-    background-color: #43a047;
+    background-color: #6a0dad;
   }
   
